@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista To Do</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body>
+    <main class="container"> 
+        <section class="todoapp"> 
+            <header> 
+                <h2>Lista To Do <img src="imagens/icon.png" alt="Ícone"></h2>
+            </header>
+            
+            <div class="row-pesquisa">
+                <input type="text" id="input-pesquisa" placeholder="Pesquisar por título..." oninput="renderizarTarefas()">
+            </div>
+            
+            <div class="area-cadastro">
+                <input type="text" id="input-box" placeholder="Título da tarefa...">
+                <input type="text" id="input-desc" placeholder="Descrição da tarefa...">
+                
+                <div class="linha-inferior">
+                    <select id="select-prioridade">
+                        <option value="Baixa">Prioridade: Baixa</option>
+                        <option value="Média" selected>Prioridade: Média</option>
+                        <option value="Alta">Prioridade: Alta</option>
+                    </select>
+                    <button id="btn-adicionar">Adicionar</button> 
+                </div>
+            </div>
+            
+            <p id="mensagem-vazia" style="display: none; text-align: center; color: #555;">Nenhuma tarefa cadastrada.</p>
+            
+            <ul id="container-lista"></ul>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
