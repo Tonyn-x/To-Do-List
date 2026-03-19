@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1a237e, #4a148c); /* Gradiente moderno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- CONTAINER PRINCIPAL*/
+.todoapp {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 50px 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TÍTULO --- */
+.todoapp h2 {
+    color: #1a237e;
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.todoapp h2 img {
+    width: 32px;
+    margin-left: 15px;
+}
+
+#input-pesquisa {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    border: 2px solid #e0e0e0;
+    border-radius: 30px;
+    background: #f5f5f5;
+    margin-bottom: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='24px' viewBox='0 0 24 24' width='24px' fill='%23555555'%3%3Cpath d='M0 0h24v24H0V0z' fill='none'/%3%3Cpath d='M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'/%3%3C/svg%3%3E");
+    background-repeat: no-repeat;
+    background-position: 15px center;
+}
+
+#input-pesquisa:focus {
+    border-color: #45b5ff;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(69, 181, 255, 0.3);
+    outline: none;
+}
+
+.form-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+    margin-bottom: 35px;
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+#input-box, #input-desc {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+#input-box:focus, #input-desc:focus {
+    border-color: #45b5ff;
+    outline: none;
+}
+
+#select-prioridade {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    appearance: none; /* Esconde a seta padrão */
+    background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3%3Cpath fill='%23555555' d='M7 10l5 5 5-5z'/%3%3C/svg%3%3E") no-repeat right 15px center;
+    cursor: pointer;
+}
+
+#select-prioridade:focus {
+    border-color: #45b5ff;
+    outline: none;
+}
+
+/* Botão Adicionar */
+#btn-adicionar {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px 30px;
+    background: #45b5ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#btn-adicionar:hover {
+    background: #329df0;
+}
+
+/* --- ÁREA DE EXIBIÇÃO DAS TAREFAS */
+
+#container-lista {
+    list-style: none;
+    margin-top: 20px;
+}
+ul li {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+ul li.checked {
+    background-color: #f1fcf4;
+    border: 1px solid #c3e6cb;
+}
+
+ul li.checked .circulo-checkbox {
+    background-color: #28a745;
+    border-color: #28a745;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3%3C/svg%3%3E");
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+ul li.checked h3 {
+    text-decoration: line-through;
+    color: #1e7e34;
+}
+ul li.checked p {
+    color: #888;
+}
+ul li .conteudo-tarefa {
+    flex: 1;
+}
+
+ul li h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a237e;
+    margin-bottom: 10px;
+}
+
+ul li p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+ul li p strong {
+    color: #333;
+    font-weight: 600;
+}
+ul li span.priority {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Cores de Prioridade */
+ul li span.priority.Alta {
+    background: #ffebee;
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+
+ul li span.priority.Média {
+    background: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ffe0b2;
+}
+
+ul li span.priority.Baixa {
+    background: #e3f2fd;
+    color: #1976d2;
+    border: 1px solid #bbdefb;
+}
+.acoes-tarefa {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.acoes-tarefa button {
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.acoes-tarefa button.concluir {
+    background: #45b5ff;
+    color: #fff;
+}
+
+.acoes-tarefa button.concluir:hover {
+    background: #28a745;
+    transform: scale(1.05);
+}
+.acoes-tarefa button.editar {
+    background: #f0f8ff;
+    color: #45b5ff;
+    border: 1px solid #45b5ff;
+}
+
+.acoes-tarefa button.editar:hover {
+    background: #d9eefd;
+}
+
+.acoes-tarefa button.excluir {
+    background: #ff8989;
+    color: #fff;
+    border: 1px solid #ff4c4c;
+}
+
+.acoes-tarefa button.excluir:hover {
+    background: #cc0000;
+    transform: scale(1.05);
+}
+.area-cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+.linha-inferior {
+    display: flex;
+    gap: 15px;
+}
+
+.linha-inferior select, 
+.linha-inferior button {
+    flex: 1;
+    margin: 0;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .linha-inferior {
+        flex-direction: column;
+    }
+    .todoapp {
+        padding: 30px 20px;
+    }
+}
+
+/* --- MENSAGEM FINAl*/
+#mensagem-vazia {
+    text-align: center;
+    color: #555;
+    font-size: 16px;
+    padding: 30px 0;
+    display: none;
+}
