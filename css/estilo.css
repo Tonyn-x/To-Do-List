@@ -266,20 +266,22 @@ ul li span.priority.Baixa {
     border: 1px solid #e0e0e0;
 }
 
-.linha-inferior {
+.grupo-prioridade {
     display: flex;
-    gap: 15px;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
 }
 
-.linha-inferior select, 
-.linha-inferior button {
-    flex: 1;
-    margin: 0;
+.grupo-prioridade label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    padding-left: 5px;
 }
-
 /* Mobile */
 @media (max-width: 600px) {
-    .linha-inferior {
+    .grupo-prioridade {
         flex-direction: column;
     }
     .todoapp {
