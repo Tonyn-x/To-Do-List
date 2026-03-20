@@ -25,18 +25,20 @@
             </div>
             
             <div class="area-cadastro">
-                <input type="text" id="input-box" placeholder="Título da tarefa...">
-                <input type="text" id="input-desc" placeholder="Descrição da tarefa...">
-                
-                <div class="linha-inferior">
-                    <select id="select-prioridade">
-                        <option value="Baixa">Prioridade: Baixa</option>
-                        <option value="Média" selected>Prioridade: Média</option>
-                        <option value="Alta">Prioridade: Alta</option>
-                    </select>
-                    <button id="btn-adicionar">Adicionar</button> 
-                </div>
+            <input type="text" id="input-box" placeholder="Título da tarefa...">
+            <input type="text" id="input-desc" placeholder="Descrição da tarefa...">
+            
+            <div class="grupo-prioridade">
+                <label for="select-prioridade">Prioridade:</label>
+                <select id="select-prioridade">
+                    <option value="Baixa">Baixa</option>
+                    <option value="Média" selected>Média</option>
+                    <option value="Alta">Alta</option>
+                </select>
             </div>
+
+            <button id="btn-adicionar">Adicionar</button>
+        </div>
             
             <p id="mensagem-vazia" style="display: none; text-align: center; color: #555;">Nenhuma tarefa cadastrada.</p>
             
@@ -47,3 +49,4 @@
     <script src="js/script.js"></script>
 </body>
 </html>
+
