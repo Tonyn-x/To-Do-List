@@ -14,11 +14,14 @@ body {
     align-items: center;
     padding: 20px;
 }
-
-/* --- CONTAINER PRINCIPAL*/
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .todoapp {
     width: 100%;
-    max-width: 650px;
+    max-width: 800px;
     background: #ffffff;
     border-radius: 20px;
     padding: 50px 40px;
@@ -121,7 +124,7 @@ body {
     background: #329df0;
 }
 
-/* --- ÁREA DE EXIBIÇÃO DAS TAREFAS */
+/*Exibir tarefas */
 
 #container-lista {
     list-style: none;
@@ -210,13 +213,17 @@ ul li span.priority.Baixa {
 }
 .acoes-tarefa {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    margin-top: 15px;
+    margin-top: 0;
+    min-width: 140px;
 }
 
 .acoes-tarefa button {
-    padding: 8px 15px;
-    border-radius: 30px;
+    width: 100%;
+    justify-content: center;
+    padding: 12px 15px;
+    border-radius: 12px;
     font-size: 14px;
     cursor: pointer;
     border: none;
@@ -240,11 +247,10 @@ ul li span.priority.Baixa {
     color: #45b5ff;
     border: 1px solid #45b5ff;
 }
-
 .acoes-tarefa button.editar:hover {
     background: #d9eefd;
+    transform: scale(1.05);
 }
-
 .acoes-tarefa button.excluir {
     background: #ff8989;
     color: #fff;
@@ -266,30 +272,88 @@ ul li span.priority.Baixa {
     border: 1px solid #e0e0e0;
 }
 
+.linha-inferior {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    width: 100%;
+}
+
 .grupo-prioridade {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    text-align: left;
+    flex: 1;
 }
 
 .grupo-prioridade label {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
-    color: #555;
+    color: #333;
     padding-left: 5px;
+    letter-spacing: 1.5px;
+}
+
+#btn-adicionar {
+    flex: 1;
+    padding: 15px 30px; 
+    background: #45b5ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#btn-adicionar:hover {
+    background: #329df0;
 }
 /* Mobile */
 @media (max-width: 600px) {
-    .grupo-prioridade {
-        flex-direction: column;
-    }
     .todoapp {
         padding: 30px 20px;
     }
+
+    .linha-inferior {
+        flex-direction: column;
+    }
+
+    .grupo-prioridade, #btn-adicionar {
+        width: 100%;
+    }
+
+    ul li {
+        flex-direction: column;
+        padding: 20px 15px;
+    }
+
+    .conteudo-tarefa {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .acoes-tarefa {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .acoes-tarefa button {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 5px;
+        font-size: 13px;
+    }
+
+    .acoes-tarefa button.excluir {
+        grid-column: span 2; 
+    }
 }
 
-/* --- MENSAGEM FINAl*/
+/* MENSAGEM FINAl*/
 #mensagem-vazia {
     text-align: center;
     color: #555;
